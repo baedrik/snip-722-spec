@@ -261,7 +261,7 @@ BatchMintNft mints a list of tokens.
 						}
 					],
 				},
-        		"transferable": true | false,
+				"transferable": true | false,
 				"memo": "optional_memo_for_the_mint_tx"
 			},
 			{
@@ -403,7 +403,7 @@ SNIP-722 adds a `transferable` field to the [NftDossier response of SNIP-721](ht
 			"serial_number": 67,
 			"quantity_minted_this_run": 1000,
 		},
-    	"transferable": true | false,
+		"transferable": true | false,
 		"owner_is_public": true | false,
 		"public_ownership_expiration": "never" | {"at_height": 999999} | {"at_time":999999},
 		"private_metadata_is_public": true | false,
