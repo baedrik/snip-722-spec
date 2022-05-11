@@ -449,7 +449,7 @@ SNIP-722 adds a `transferable` field to the [NftDossier response of SNIP-721](ht
 | token_approvals                       | array of [Snip721Approval](https://github.com/SecretFoundation/SNIPs/blob/master/SNIP-721.md#snip721approval)| List of approvals for this token                      | yes      |
 | inventory_approvals                   | array of [Snip721Approval](https://github.com/SecretFoundation/SNIPs/blob/master/SNIP-721.md#snip721approval)| List of inventory-wide approvals for the token's owner| yes      |
 
-The `transferable` field is mandatory for SNIP-722 compliant contracts, but because SNIP-722 is an optional extension to SNIP-721, any NftDossier response that does not include the field can be assumed to come from a contract that only implements transferable tokens (and can be considered equivalent to `transferable` = true)
+The `transferable` field is mandatory for SNIP-722 compliant contracts, but because SNIP-722 is an optional extension to SNIP-721, any NftDossier response that does not include the field can be considered to come from a contract that only implements transferable tokens (considered equivalent to `transferable` = true)
 
 ### IsTransferable
 IsTransferable indicates whether the token is transferable.  This query is not authenticated.
@@ -479,7 +479,7 @@ IsTransferable indicates whether the token is transferable.  This query is not a
 | token_is_transferable  | bool | True if the token is transferable                                       | no       |
 
 ### ImplementsNonTransferableTokens
-ImplementsNonTransferableTokens indicates whether the contract implements non-transferable tokens.  Because legacy SNIP-721 contracts do not implement this query and do not implement non-transferable tokens, any use of this query should always check for an error response, and if the response is an error, it can be assumed that the contract does not implement non-transferable tokens.
+ImplementsNonTransferableTokens indicates whether the contract implements non-transferable tokens.  Because legacy SNIP-721 contracts do not implement this query and do not implement non-transferable tokens, any use of this query should always check for an error response, and if the response is an error, it can be considered that the contract does not implement non-transferable tokens.
 
 ##### Request
 ```
