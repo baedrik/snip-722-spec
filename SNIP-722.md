@@ -446,8 +446,8 @@ SNIP-722 adds a `transferable` field to the [NftDossier response of SNIP-721](ht
 | public_ownership_expiration           | [Expiration](https://github.com/SecretFoundation/SNIPs/blob/master/SNIP-721.md#expiration)   | When public ownership expires for this token.  Can be a blockheight, time, or never    | yes      |
 | private_metadata_is_public            | bool                                                  | True if private metadata is public for this token                                                         | no       |
 | private_metadata_is_public_expiration | [Expiration](https://github.com/SecretFoundation/SNIPs/blob/master/SNIP-721.md#expiration)   | When public display of private metadata expires.  Can be a blockheight, time, or never | yes      |
-| token_approvals                       | array of [Snip721Approval](https://github.com/SecretFoundation/SNIPs/blob/master/SNIP-721.md#snipapproval)| List of approvals for this token                      | yes      |
-| inventory_approvals                   | array of [Snip721Approval](https://github.com/SecretFoundation/SNIPs/blob/master/SNIP-721.md#snipapproval)| List of inventory-wide approvals for the token's owner| yes      |
+| token_approvals                       | array of [Snip721Approval](https://github.com/SecretFoundation/SNIPs/blob/master/SNIP-721.md#snip721approval)| List of approvals for this token                      | yes      |
+| inventory_approvals                   | array of [Snip721Approval](https://github.com/SecretFoundation/SNIPs/blob/master/SNIP-721.md#snip721approval)| List of inventory-wide approvals for the token's owner| yes      |
 
 The `transferable` field is mandatory for SNIP-722 compliant contracts, but because SNIP-722 is an optional extension to SNIP-721, any NftDossier response that does not include the field can be assumed to come from a contract that only implements transferable tokens (and can be considered equivalent to `transferable` = true)
 
