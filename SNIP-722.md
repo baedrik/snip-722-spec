@@ -207,6 +207,7 @@ MintNft mints a single token.
 | transferable     | bool                                      | True if the minted token should be transferable                                               | yes      | true                 |
 | memo             | string                                    | `memo` for the mint tx that is only viewable by addresses involved in the mint (minter, owner)| yes      | nothing              |
 | padding          | string                                    | An ignored string that can be used to maintain constant message length                        | yes      | nothing              |
+
 Setting royalties for a non-transferable token has no purpose, because it can never be transferred as part of a sale.
 
 ##### Response
@@ -260,7 +261,7 @@ BatchMintNft mints a list of tokens.
 						}
 					],
 				},
-        "transferable": true | false,
+        		"transferable": true | false,
 				"memo": "optional_memo_for_the_mint_tx"
 			},
 			{
@@ -323,7 +324,7 @@ The Mint object defines the data necessary to mint one token.
 			}
 		],
 	},
-  "transferable": true | false,
+	"transferable": true | false,
 	"memo": "optional_memo_for_the_mint_tx"
 }
 ```
@@ -337,6 +338,7 @@ The Mint object defines the data necessary to mint one token.
 | royalty_info     | [RoyaltyInfo](https://github.com/SecretFoundation/SNIPs/blob/master/SNIP-721.md#royaltyinfo)   | RoyaltyInfo for this token                | yes      | default RoyaltyInfo  |
 | transferable     | bool                                      | True if the minted token should be transferable                                                | yes      | true                 |
 | memo             | string                                    | `memo` for the mint tx that is only viewable by addresses involved in the mint (minter, owner) | yes      | nothing              |
+
 Setting royalties for a non-transferable token has no purpose, because it can never be transferred as part of a sale.
 
 ## Queries
@@ -401,7 +403,7 @@ SNIP-722 adds a `transferable` field to the [NftDossier response of SNIP-721](ht
 			"serial_number": 67,
 			"quantity_minted_this_run": 1000,
 		},
-    "transferable": true | false,
+    	"transferable": true | false,
 		"owner_is_public": true | false,
 		"public_ownership_expiration": "never" | {"at_height": 999999} | {"at_time":999999},
 		"private_metadata_is_public": true | false,
@@ -446,6 +448,7 @@ SNIP-722 adds a `transferable` field to the [NftDossier response of SNIP-721](ht
 | private_metadata_is_public_expiration | [Expiration](https://github.com/SecretFoundation/SNIPs/blob/master/SNIP-721.md#expiration)   | When public display of private metadata expires.  Can be a blockheight, time, or never | yes      |
 | token_approvals                       | array of [Snip721Approval](https://github.com/SecretFoundation/SNIPs/blob/master/SNIP-721.md#snipapproval)| List of approvals for this token                      | yes      |
 | inventory_approvals                   | array of [Snip721Approval](https://github.com/SecretFoundation/SNIPs/blob/master/SNIP-721.md#snipapproval)| List of inventory-wide approvals for the token's owner| yes      |
+
 The `transferable` field is mandatory for SNIP-722 compliant contracts, but because SNIP-722 is an optional extension to SNIP-721, any NftDossier response that does not include the field can be assumed to come from a contract that only implements transferable tokens (and can be considered equivalent to `transferable` = true)
 
 ### IsTransferable
