@@ -1,4 +1,4 @@
-# SNIP-722 - Extension of [SNIP-721](/SNIP-721.md) for Badges, POAPs, and Non-Transferable NFTs
+# SNIP-722 - Extension of [SNIP-721](https://github.com/SecretFoundation/SNIPs/blob/master/SNIP-721.md) for Badges, POAPs, and Non-Transferable NFTs
 
 This document describes several optional enhancements to the SNIP-721 specification.  Contracts that support the existing SNIP-721 standard are still considered SNIP-721 compliant.  Clients should be written so as to benefit from these SNIP-722 features when available, but provide fallbacks for when these features are not available.
 
