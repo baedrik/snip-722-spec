@@ -4,7 +4,7 @@ This document describes several optional enhancements to the SNIP-721 specificat
 
 The features specified in this document enable a SNIP-722 compliant contract to be used for badges and POAPs as well as non-transferable tokens.
 
-* [Badges/POAPs](#Badges/POAPs)
+* [Badges/POAPs](#badges)
 * [Non-Transferable Tokens](#Non-Transferable-Tokens)
 
     Messages
@@ -16,7 +16,7 @@ The features specified in this document enable a SNIP-722 compliant contract to 
     * [IsTransferable](#istransferable)
     * [ImplementsNonTransferableTokens](#implementsnontransferabletokens)
 
-## Badges/POAPs
+## <a name="badges"></a>Badges/POAPs
 
 The primary update for Badges/POAPs is the addition of a `token_subtype` field in the [Metadata](#metadata) [Extension](#extension) struct.  This field is intended to be used by applications in order to differentiate NFTs that are used as Badges/POAPs so that they can be displayed as such because they will be used for things like trophies, achievements, proof of attendence, etc...  An example of the definition of Metadata and Extension as used by Stashh is included below.
 
