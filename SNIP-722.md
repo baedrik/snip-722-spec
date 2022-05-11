@@ -35,6 +35,7 @@ This is the metadata for a token that follows CW-721 metadata specification, whi
 |-----------|-------------------------------------|--------------------------------------------------------------------------------------|----------|----------------------|
 | token_uri | string                              | Uri pointing to off-chain JSON metadata                                              | yes      | nothing              |
 | extension | [Extension (see below)](#extension) | Data structure defining on-chain metadata                                            | yes      | nothing              |
+
 The reference implementation will throw an error if both `token_uri` and `extension` are provided.
 
 #### <a name="extension"></a>Extension
