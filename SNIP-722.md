@@ -190,7 +190,7 @@ MintNft mints a single token.
 				}
 			],
 		},
-    "transferable": true | false,
+		"transferable": true | false,
 		"memo": "optional_memo_for_the_mint_tx",
 		"padding": "optional_ignored_string_that_can_be_used_to_maintain_constant_message_length"
 	}
