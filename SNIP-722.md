@@ -5,6 +5,10 @@ This document describes several optional enhancements to the SNIP-721 specificat
 The features specified in this document enable a SNIP-722 compliant contract to be used for badges and POAPs as well as non-transferable tokens.
 
 * [Badges/POAPs](#badges)
+
+	Queries
+    * [ImplementsTokenSubtype](#ImplementsTokenSubtype)
+
 * [Non-Transferable Tokens](#Non-Transferable-Tokens)
 
     Messages
@@ -76,7 +80,7 @@ This is an on-chain metadata extension struct that conforms to the Stashh metada
 		},
 	],
 	"protected_attributes": [ "list", "of_attributes", "whose_types", "are_public", "but_values", "are_private" ],
-  "token_subtype": "badge"
+	"token_subtype": "badge"
 }
 ```
 | Name                 | Type                                         | Description                                                                          | Optional | Value If Omitted     |
@@ -143,6 +147,29 @@ Authentication is used to provide the decryption key or username/password for pr
 |------|--------|--------------------------------------------------------------------------------------|----------|----------------------|
 | key  | string | Decryption key or password                                                           | yes      | nothing              |
 | user | string | Username for basic authentication                                                    | yes      | nothing              |
+
+## Queries
+
+### ImplementsTokenSubtype
+ImplementsTokenSubtype indicates whether the contract implements the `token_subtype` Extension field.  Because legacy SNIP-721 contracts do not implement this query and do not implement token subtypes, any use of this query should always check for an error response, and if the response is an error, it can be considered that the contract does not implement subtypes.  Because message parsing ignores input fields that a contract does not expect, this query should be used before attempting a message that uses the `token_subtype` Extension field.  If the message is sent to a SNIP-721 contract that does not implement `token_subtype`, that field will just be ignored and the resulting NFT will still be created/updated, but without a `token_subtype`.
+
+##### Request
+```
+{
+	"implements_token_subtype": {}
+}
+```
+##### Response
+```
+{
+	"implements_token_subtype": {
+		"is_enabled": true | false
+	}
+}
+```
+| Name        | Type | Description                                                             | Optional | 
+|-------------|------|-------------------------------------------------------------------------|----------|
+| is_enabled  | bool | True if the contract implements token subtypes                          | no       |
 
 ## Non-Transferable Tokens
 
@@ -479,7 +506,7 @@ IsTransferable indicates whether the token is transferable.  This query is not a
 | token_is_transferable  | bool | True if the token is transferable                                       | no       |
 
 ### ImplementsNonTransferableTokens
-ImplementsNonTransferableTokens indicates whether the contract implements non-transferable tokens.  Because legacy SNIP-721 contracts do not implement this query and do not implement non-transferable tokens, any use of this query should always check for an error response, and if the response is an error, it can be considered that the contract does not implement non-transferable tokens.
+ImplementsNonTransferableTokens indicates whether the contract implements non-transferable tokens.  Because legacy SNIP-721 contracts do not implement this query and do not implement non-transferable tokens, any use of this query should always check for an error response, and if the response is an error, it can be considered that the contract does not implement non-transferable tokens.  Because message parsing ignores input fields that a contract does not expect, this query should be used before attempting to mint a non-transferable token.  If the message is sent to a SNIP-721 contract that does not implement non-transferable tokens, the `transferable` field will just be ignored and the resulting NFT will still be created, but will always be transferable.
 
 ##### Request
 ```
